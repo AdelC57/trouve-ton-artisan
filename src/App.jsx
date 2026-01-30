@@ -1,31 +1,28 @@
-// Les composants importé
-import Header from "./components/header";
-import Footer from "./components/footer";
-import ArtisanCard from "./components/ArtisanCard";
-import artisansData from './data/datas.json';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import ListeArtisans from './pages/ListeArtisans';
+import FicheArtisan from './pages/FicheArtisan';
+import NotFound from './pages/NotFound';
 
 function App() {
-  /* Filtrer les artisan du mois */
-  const artisansDuMois = artisansData.filter(artisan => artisan.top === true)
   return (
-    <div>
+    <BrowserRouter>
       <Header />
-       <main>
-        <h2>Les trois artisans du mois</h2>
-        
-        {artisansDuMois.map((artisan) => (
-          <ArtisanCard 
-            key={artisan.id}
-            nom={artisan.name}
-            note={artisan.note}
-            specialite={artisan.specialty}
-            ville={artisan.location}
-          />
-        ))}
-      </main>
-
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/artisan/:id" element={<FicheArtisan />} />
+        <Route path="/batiment" element={<ListeArtisans />} />
+        <Route path="/services" element={<ListeArtisans />} />
+        <Route path="/fabrication" element={<ListeArtisans />} />
+        <Route path="/alimentation" element={<ListeArtisans />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 
