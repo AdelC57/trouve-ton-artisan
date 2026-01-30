@@ -11,7 +11,6 @@ function ListeArtisans() {
   if (location.pathname === '/fabrication') categorie = 'Fabrication';
   if (location.pathname === '/alimentation') categorie = 'Alimentation';
   
-  // Filtre les artisans par catégorie (comparaison directe)
   const artisansFiltres = artisansData.filter(artisan => 
     artisan.category === categorie
   );
@@ -25,6 +24,7 @@ function ListeArtisans() {
         artisansFiltres.map((artisan) => (
           <ArtisanCard 
             key={artisan.id}
+            id={artisan.id}
             nom={artisan.name}
             note={artisan.note}
             specialite={artisan.specialty}

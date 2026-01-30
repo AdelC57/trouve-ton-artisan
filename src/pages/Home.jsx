@@ -2,11 +2,13 @@ import ArtisanCard from '../components/ArtisanCard';
 import artisansData from '../data/datas.json';
 
 function Home() {
-  // Filtre uniquement les artisans du mois (top: true)
   const artisansDuMois = artisansData.filter(artisan => artisan.top === true);
   
   return (
     <main>
+      <h1>Trouve ton artisan !</h1>
+      <p>Avec la région Auvergne-Rhône-Alpes</p>
+      
       <section>
         <h2>Comment trouver mon artisan ?</h2>
         <div>
@@ -22,6 +24,7 @@ function Home() {
         {artisansDuMois.map((artisan) => (
           <ArtisanCard 
             key={artisan.id}
+            id={artisan.id}
             nom={artisan.name}
             note={artisan.note}
             specialite={artisan.specialty}
