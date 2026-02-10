@@ -3,40 +3,40 @@ import SearchBar from './SearchBar';
 
 function Header() {
   return (
-    <header style={{ background: '#f1f8fc', padding: '20px', borderBottom: '2px solid #0074c7' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    <header className="bg-light border-bottom border-primary border-3">
+      <div className="container py-3">
         
-        {/* Première ligne : Logo et menu */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+        {/* Logo et Navigation */}
+        <div className="d-flex justify-content-between align-items-center mb-3">
           
           {/* Logo cliquable */}
-          <Link to="/" style={{ textDecoration: 'none', color: '#384050' }}>
+          <Link to="/" className="text-decoration-none">
             <div>
-              <h1 style={{ margin: '0', fontSize: '24px' }}>Trouve ton artisan !</h1>
-              <p style={{ margin: '0', fontSize: '14px', color: '#0074c7' }}>Avec la région Auvergne-Rhône-Alpes</p>
+              <h1 className="h3 mb-0 text-dark">Trouve ton artisan !</h1>
+              <p className="small text-primary mb-0">Avec la région Auvergne-Rhône-Alpes</p>
             </div>
           </Link>
           
           {/* Menu de navigation */}
-          <nav>
-            <Link to="/batiment" style={{ margin: '0 15px', textDecoration: 'none', color: '#0074c7', fontWeight: 'bold' }}>
+          <nav className="d-none d-md-flex gap-3">
+            <Link to="/batiment" className="btn btn-outline-primary">
               Bâtiment
             </Link>
-            <Link to="/services" style={{ margin: '0 15px', textDecoration: 'none', color: '#0074c7', fontWeight: 'bold' }}>
+            <Link to="/services" className="btn btn-outline-primary">
               Services
             </Link>
-            <Link to="/fabrication" style={{ margin: '0 15px', textDecoration: 'none', color: '#0074c7', fontWeight: 'bold' }}>
+            <Link to="/fabrication" className="btn btn-outline-primary">
               Fabrication
             </Link>
-            <Link to="/alimentation" style={{ margin: '0 15px', textDecoration: 'none', color: '#0074c7', fontWeight: 'bold' }}>
+            <Link to="/alimentation" className="btn btn-outline-primary">
               Alimentation
             </Link>
           </nav>
           
         </div>
         
-        {/* Deuxième ligne : Barre de recherche */}
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        {/* Barre de recherche */}
+        <div className="d-flex justify-content-center">
           <SearchBar />
         </div>
         

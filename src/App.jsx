@@ -7,6 +7,7 @@ import FicheArtisan from './pages/FicheArtisan';
 import Recherche from './pages/Recherche';
 import NotFound from './pages/NotFound';
 
+
 function App() {
   return (
     <BrowserRouter>

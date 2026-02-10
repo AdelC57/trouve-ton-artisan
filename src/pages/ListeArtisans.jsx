@@ -17,22 +17,30 @@ function ListeArtisans() {
   
   return (
     <main>
-      <h1>Artisans - {categorie}</h1>
-      <p>Trouver un artisan près de chez vous !</p>
+      <div className="text-center mb-5">
+        <h1 className="display-5">Artisans - {categorie}</h1>
+        <p className="lead">en Auvergne-Rhône-Alpes</p>
+        <p className="text-muted">{artisansFiltres.length} artisan(s) trouvé(s)</p>
+      </div>
       
       {artisansFiltres.length > 0 ? (
-        artisansFiltres.map((artisan) => (
-          <ArtisanCard 
-            key={artisan.id}
-            id={artisan.id}
-            nom={artisan.name}
-            note={artisan.note}
-            specialite={artisan.specialty}
-            ville={artisan.location}
-          />
-        ))
+        <div className="row g-4">
+          {artisansFiltres.map((artisan) => (
+            <div key={artisan.id} className="col-md-6 col-lg-4">
+              <ArtisanCard 
+                id={artisan.id}
+                nom={artisan.name}
+                note={artisan.note}
+                specialite={artisan.specialty}
+                ville={artisan.location}
+              />
+            </div>
+          ))}
+        </div>
       ) : (
-        <p>Aucun artisan trouvé dans cette catégorie.</p>
+        <div className="alert alert-info text-center" role="alert">
+          Aucun artisan trouvé dans cette catégorie.
+        </div>
       )}
     </main>
   );

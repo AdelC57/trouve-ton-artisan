@@ -6,7 +6,6 @@ function Recherche() {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q') || '';
   
-  // Filtre les artisans par nom, spécialité ou ville
   const resultats = artisansData.filter(artisan => {
     const searchLower = query.toLowerCase();
     return (
@@ -18,23 +17,33 @@ function Recherche() {
   
   return (
     <main>
-      <h1>Résultats de recherche</h1>
-      <p>Recherche : <strong>"{query}"</strong></p>
-      <p>{resultats.length} artisan(s) trouvé(s)</p>
+      <div className="text-center mb-5">
+        <h1 className="display-5">Résultats de recherche</h1>
+        <p className="lead">Recherche : <strong>"{query}"</strong></p>
+        <p className="text-muted">{resultats.length} artisan(s) trouvé(s)</p>
+      </div>
       
       {resultats.length > 0 ? (
-        resultats.map((artisan) => (
-          <ArtisanCard 
-            key={artisan.id}
-            id={artisan.id}
-            nom={artisan.name}
-            note={artisan.note}
-            specialite={artisan.specialty}
-            ville={artisan.location}
-          />
-        ))
+        <div className="row g-4">
+          {resultats.map((artisan) => (
+            <div key={artisan.id} className="col-md-6 col-lg-4">
+              <ArtisanCard 
+                id={artisan.id}
+                nom={artisan.name}
+                note={artisan.note}
+                specialite={artisan.specialty}
+                ville={artisan.location}
+              />
+            </div>
+          ))}
+        </div>
       ) : (
-        <p>Aucun artisan ne correspond à votre recherche.</p>
+        <div className="alert alert-warning text-center" role="alert">
+          <h4 className="alert-heading">Aucun résultat</h4>
+          <p>Aucun artisan ne correspond à votre recherche "<strong>{query}</strong>".</p>
+          <hr />
+          <p className="mb-0">Essayez avec un autre mot-clé (nom, spécialité ou ville).</p>
+        </div>
       )}
     </main>
   );

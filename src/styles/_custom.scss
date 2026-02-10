@@ -1,0 +1,63 @@
+// Import des variables
+@import 'variables';
+
+// Style général
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  background-color: $color-background;
+  color: $color-secondary;
+}
+
+// Liens
+a {
+  color: $color-primary;
+  text-decoration: none;
+  
+  &:hover {
+    color: $color-primary-dark;
+    text-decoration: underline;
+  }
+}
+
+// Boutons personnalisés
+.btn-primary-custom {
+  background-color: $color-primary;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+}
+
+.btn-success-custom {
+  background-color: $color-accent-green;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+// Container principal
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: calc(100vh - 300px);
+}

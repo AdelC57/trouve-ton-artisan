@@ -9,35 +9,23 @@ function SearchBar() {
     e.preventDefault();
     
     if (searchTerm.trim() !== '') {
-      // Redirige vers une page de résultats avec le terme de recherche
       navigate(`/recherche?q=${searchTerm}`);
     }
   };
   
   return (
-    <form onSubmit={handleSearch} style={{ display: 'flex', gap: '10px' }}>
+    <form onSubmit={handleSearch} className="d-flex gap-2" style={{ width: '100%', maxWidth: '500px' }}>
       <input 
         type="text"
         placeholder="Rechercher un artisan (nom, spécialité, ville)..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        style={{ 
-          padding: '10px', 
-          border: '1px solid #ccc', 
-          borderRadius: '5px',
-          width: '300px'
-        }}
+        className="form-control"
       />
       <button 
         type="submit"
-        style={{ 
-          padding: '10px 20px', 
-          background: '#cd2c2e', 
-          color: 'white', 
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer'
-        }}
+        className="btn text-white"
+        style={{ backgroundColor: '#cd2c2e' }}
       >
         Rechercher
       </button>
