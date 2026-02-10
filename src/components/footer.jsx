@@ -1,10 +1,17 @@
+import { Link } from 'react-router-dom';
+
+/**
+ * Composant Footer
+ * Affiche les coordonnées de la région et les liens vers les pages légales
+ * Présent sur toutes les pages
+ */
 function Footer() {
   return (
     <footer className="bg-primary text-white mt-5">
       <div className="container py-4">
         <div className="row">
           
-          {/* Colonne 1 : Coordonnées */}
+          {/* Colonne 1 : Coordonnées de la région */}
           <div className="col-md-6 mb-3 mb-md-0">
             <h5>Région Auvergne-Rhône-Alpes</h5>
             <p className="mb-1">101 cours Charlemagne</p>
@@ -16,22 +23,22 @@ function Footer() {
             </p>
           </div>
           
-          {/* Colonne 2 : Liens légaux */}
+          {/* Colonne 2 : Liens vers les pages légales */}
           <div className="col-md-6">
             <h5>Informations légales</h5>
             <nav className="d-flex flex-column gap-2">
-              <a href="/mentions-legales" className="text-white text-decoration-none">
+              <Link to="/mentions-legales" className="text-white text-decoration-none">
                 Mentions légales
-              </a>
-              <a href="/donnees-personnelles" className="text-white text-decoration-none">
+              </Link>
+              <Link to="/donnees-personnelles" className="text-white text-decoration-none">
                 Données personnelles
-              </a>
-              <a href="/accessibilite" className="text-white text-decoration-none">
+              </Link>
+              <Link to="/accessibilite" className="text-white text-decoration-none">
                 Accessibilité
-              </a>
-              <a href="/cookies" className="text-white text-decoration-none">
+              </Link>
+              <Link to="/cookies" className="text-white text-decoration-none">
                 Cookies
-              </a>
+              </Link>
             </nav>
           </div>
           

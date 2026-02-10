@@ -1,15 +1,25 @@
 import { Link } from 'react-router-dom';
 
+/**
+ * Page 404 - Not Found
+ * Affichée lorsqu'un utilisateur accède à une URL qui n'existe pas
+ */
 function NotFound() {
   return (
     <main>
       <div className="text-center py-5">
+        {/* Grand "404" */}
         <div className="display-1 text-primary fw-bold mb-4">404</div>
+        
+        {/* Titre */}
         <h1 className="h2 mb-3">Oups ! Page non trouvée</h1>
+        
+        {/* Message explicatif */}
         <p className="lead text-muted mb-4">
           Désolé, la page que vous recherchez est introuvable ou a été déplacée.
         </p>
         
+        {/* Icône illustrative (SVG) */}
         <div className="mb-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-primary opacity-25">
             <circle cx="12" cy="12" r="10"></circle>
@@ -18,6 +28,7 @@ function NotFound() {
           </svg>
         </div>
         
+        {/* Bouton retour à l'accueil */}
         <Link to="/" className="btn btn-primary btn-lg">
           Retour à l'accueil
         </Link>
